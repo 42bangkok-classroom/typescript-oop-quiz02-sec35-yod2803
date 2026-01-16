@@ -17,8 +17,7 @@ export const countCommentsByPost = async (): Promise<Record<number, number>> => 
         return acc;
       }
 
-      acc[comment.postId] = (acc[comment.postId] 
- 0) + 1;
+      acc[comment.postId] = (acc[comment.postId]  0) + 1;
       return acc;
     }, {} as Record<number, number>);
 

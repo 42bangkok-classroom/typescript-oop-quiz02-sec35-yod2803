@@ -16,8 +16,7 @@ interface SafeComment {
 export const safeFetchComment = async (commentId: number | null | undefined): Promise<SafeComment | null> => {
   try {
 
-    if (commentId === null  commentId === undefined 
- commentId <= 0) {
+    if (commentId === null  commentId === undefined  commentId <= 0) {
       return null;
     }
 
