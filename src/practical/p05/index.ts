@@ -15,18 +15,19 @@ interface SafeComment {
 
 export const safeFetchComment = async (commentId: number | null | undefined): Promise<SafeComment | null> => {
   try {
-
-    if (commentId === null  commentId === undefined  commentId <= 0) {
+    
+    if (commentId === null || commentId === undefined || commentId <= 0) {
       return null;
     }
 
-    const { data } = await axios.get<APIComment>(https://jsonplaceholder.typicode.com/comments/${commentId});
+    
+    const { data } = await axios.get<APIComment>(`https://jsonplaceholder.typicode.com/comments/${commentId}`);
 
-
-    return [data].map((comment) => ({
-      id: comment.id,
-      body: comment.body,
-    }))[0];
+   
+    return {
+      id: data.id,
+      body: data.body,
+    };
 
   } catch (error) {
     return null;
